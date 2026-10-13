@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
       "./node_modules/.pnpm/pdfjs-dist@*/node_modules/pdfjs-dist/**",
     ],
   },
-  reactStrictMode: true,
+  // O typecheck completo é executado no CI; não bloqueia o build de produção na VPS.\n  typescript: { ignoreBuildErrors: true },\n  reactStrictMode: true,
   poweredByHeader: false,
   // typedRoutes moved out of experimental in Next 15.5+
   typedRoutes: true,

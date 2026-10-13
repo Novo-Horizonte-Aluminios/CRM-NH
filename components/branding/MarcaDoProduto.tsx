@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
  * ninguém configurou marca própria (`marcaEhADoProduto`, em `lib/branding.ts`).
  *
  * Inline, e não `<img src="/algo.svg">`, por três motivos:
- *  - as cores seguem o TEMA: sálvia mais clara e nome em creme no escuro, como
+ *  - as cores seguem o TEMA: o monograma usa azul-marinho no claro e gelo no escuro,
  *    a régua do produto já define — um arquivo estático teria uma cor só;
  *  - nada em `public/`: um `.svg` fixo ali seria servido na instalação de um
  *    revendedor que configurou a marca dele (ver `lib/branding/desenho.ts`);
@@ -26,9 +26,9 @@ type Props = {
   readonly decorativo?: boolean;
 };
 
-const SIMBOLO_CLARO_ESCURO = "fill-[#506d48] dark:fill-[#82a077]";
-const NOME_CLARO_ESCURO = "fill-[#1c1a16] dark:fill-[#f5f4ef]";
-const SUFIXO_CLARO_ESCURO = "fill-[#5d594f] dark:fill-[#8e8b7f]";
+const SIMBOLO_CLARO_ESCURO = "fill-[#003f5c] dark:fill-[#dcebf0]";
+const NOME_CLARO_ESCURO = "fill-[#003f5c] dark:fill-[#f5f7f5]";
+const SUFIXO_CLARO_ESCURO = "fill-[#00a651] dark:fill-[#38c982]";
 
 // As classes acima repetem os hexes de `CORES_DA_MARCA` porque o Tailwind só
 // gera utilitário para valor LITERAL no fonte. Quem impede os dois de divergirem
@@ -56,7 +56,7 @@ export function SimboloDoProduto({ nome, className, decorativo = false }: Props)
     >
       <g className={SIMBOLO_CLARO_ESCURO} transform={SIMBOLO.transform}>
         <path d={SIMBOLO.d} />
-        <rect {...SIMBOLO.modulo} />
+        <rect {...SIMBOLO.modulo} className={SUFIXO_CLARO_ESCURO} />
       </g>
     </svg>
   );
@@ -72,18 +72,41 @@ export function LogotipoDoProduto({ nome, className, decorativo = false }: Props
     >
       <g className={SIMBOLO_CLARO_ESCURO} transform={LOGOTIPO.simbolo.transform}>
         <path d={LOGOTIPO.simbolo.d} />
-        <rect {...LOGOTIPO.simbolo.modulo} />
+        <rect {...LOGOTIPO.simbolo.modulo} className={SUFIXO_CLARO_ESCURO} />
       </g>
-      <g className={NOME_CLARO_ESCURO}>
-        {LOGOTIPO.nome.map((g) => (
-          <path key={g.transform} transform={g.transform} d={g.d} />
-        ))}
-      </g>
-      <g className={SUFIXO_CLARO_ESCURO}>
-        {LOGOTIPO.sufixo.map((g) => (
-          <path key={g.transform} transform={g.transform} d={g.d} />
-        ))}
-      </g>
+      <text
+        className={NOME_CLARO_ESCURO}
+        x="198"
+        y="77"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontSize="48"
+        fontWeight="700"
+        letterSpacing="-2"
+      >
+        CRM
+      </text>
+      <text
+        className={SUFIXO_CLARO_ESCURO}
+        x="315"
+        y="77"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontSize="48"
+        fontWeight="700"
+        letterSpacing="-2"
+      >
+        NH
+      </text>
+      <text
+        className={SUFIXO_CLARO_ESCURO}
+        x="210"
+        y="105"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontSize="11"
+        fontWeight="600"
+        letterSpacing="3"
+      >
+        NOVO HORIZONTE
+      </text>
     </svg>
   );
 }

@@ -3,8 +3,8 @@
 [🇧🇷 Português](README.md) · [🇺🇸 English](README.en.md) · 🇪🇸 Español
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/brand/deskcomm-logo-dark.svg">
-  <img src="docs/brand/deskcomm-logo.svg" alt="Deskcomm CRM" width="420">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/brand/crm-nh-logo-dark.svg">
+  <img src="docs/brand/crm-nh-logo.svg" alt="CRM NH — Novo Horizonte" width="420">
 </picture>
 
 # 🛠️ DeskcommCRM — el Sistema Operativo de Ventas con IA, open source, para WhatsApp

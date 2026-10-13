@@ -1,0 +1,3 @@
+# Runtime-only image for Coolify.
+# The production image is built by GitHub Actions; the VPS only pulls it.
+FROM ghcr.io/novo-horizonte-aluminios/crm-nh:latest
